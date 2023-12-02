@@ -1,4 +1,4 @@
-﻿Dictionary<string, int> colors = new Dictionary<string, int> {
+﻿Dictionary<string, int> maxColors = new Dictionary<string, int> {
     { "red", 12 },
     { "green", 13 },
     { "blue", 14 }
@@ -20,7 +20,7 @@ File.ReadLines("input.txt").ToList().ForEach(line => {
             var color = c.Trim().Split(" ")[1];
             var count = int.Parse(c.Trim().Split(" ")[0]);
 
-            if (count > colors[color])
+            if (count > maxColors[color])
                 gameFailed = true;            
         });
     });
