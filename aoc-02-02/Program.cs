@@ -11,11 +11,9 @@ File.ReadLines("input.txt").ToList().ForEach(line => {
     };
 
     gameRounds.ForEach(r => {        
-        r.Split(",").ToList().ForEach(c => {
-            
+        r.Split(",").ToList().ForEach(c => {            
             var color = c.Trim().Split(" ")[1];
-            var count = int.Parse(c.Trim().Split(" ")[0]);
-            
+            var count = int.Parse(c.Trim().Split(" ")[0]);            
             colors[color] = Math.Max(count, colors[color]);
         });
     });
