@@ -22,7 +22,6 @@ Dictionary<string, char> replacements = new Dictionary<string, char>() {
     { "7", '7'},
     { "8", '8'},
     { "9", '9'},
-    { "0", '0'},
 };
 
 int sum = 0;
