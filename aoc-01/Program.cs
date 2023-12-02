@@ -29,34 +29,35 @@ int sum = 0;
 
 foreach (var line in File.ReadLines("input.txt"))
 {
-
-    SortedList<int,char> temp = new SortedList<int, char>();
+    SortedList<int, char> digits = new SortedList<int, char>();
 
     /*
         Search line for all occurence of replacement values
         and capture occurences in a sorted list so that it is 
         trivial to get the first and last digit later
     */
-    foreach(string key in replacements.Keys) {
+    foreach (string key in replacements.Keys)
+    {
         int idx = 0;
         int ptr = 0;
-        
-        while (idx >= 0) {
+
+        while (idx >= 0)
+        {
             idx = line.IndexOf(key, ptr);
             ptr = idx + 1;
             if (idx >= 0)
-                temp.Add(idx, replacements[key]);            
+                digits.Add(idx, replacements[key]);
         }
     }
-    
+
     /* 
         Concatenate the first and last digit, convert to an int, 
         and add to the sum
 
         Note:  If there is only one digit in the line, use it as
         both the first and second digit of the number.
-    */       
-    sum += int.Parse(String.Concat(temp.First().Value, temp.Last().Value));      
+    */
+    sum += int.Parse(String.Concat(digits.First().Value, digits.Last().Value));
 }
 
 Console.WriteLine($"The sum is {sum}");
