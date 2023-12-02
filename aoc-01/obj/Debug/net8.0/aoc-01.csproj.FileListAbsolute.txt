@@ -12,3 +12,4 @@
 /home/paul/src/aoc-2023/aoc-01/obj/Debug/net8.0/aoc-01.pdb
 /home/paul/src/aoc-2023/aoc-01/obj/Debug/net8.0/aoc-01.genruntimeconfig.cache
 /home/paul/src/aoc-2023/aoc-01/obj/Debug/net8.0/ref/aoc-01.dll
+/home/paul/src/aoc-2023/aoc-01/obj/Debug/net8.0/aoc-01.sourcelink.json

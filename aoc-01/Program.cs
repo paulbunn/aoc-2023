@@ -1,7 +1,8 @@
-﻿using System.Collections.Immutable;
-
-int sum = 0;
-
+﻿/*
+   Use a map of strings to find and with digit equivalents.
+   For simplicity, I'll search for digits too, rather than adding logic
+   to treat them differently
+*/
 Dictionary<string, char> replacements = new Dictionary<string, char>() {
     { "one", '1'},
     { "two", '2'},
@@ -24,12 +25,18 @@ Dictionary<string, char> replacements = new Dictionary<string, char>() {
     { "0", '0'},
 };
 
+int sum = 0;
 
 foreach (var line in File.ReadLines("input.txt"))
 {
 
     SortedList<int,char> temp = new SortedList<int, char>();
 
+    /*
+        Search line for all occurence of replacement values
+        and capture occurences in a sorted list so that it is 
+        trivial to get the first and last digit later
+    */
     foreach(string key in replacements.Keys) {
         int idx = 0;
         int ptr = 0;
@@ -42,12 +49,16 @@ foreach (var line in File.ReadLines("input.txt"))
         }
     }
     
+    /* 
+        Concatenate the first and last digit, convert to an int, 
+        and add to the sum
+
+        Note:  If there is only one digit in the line, use it as
+        both the first and second digit of the number.
+    */       
     sum += int.Parse(String.Concat(temp.First().Value, temp.Last().Value));      
-
-    Console.WriteLine($"{line} \t\t:: {temp.First().Value} :: {temp.Last().Value} :: {sum}");
-
 }
 
-Console.WriteLine(sum);
+Console.WriteLine($"The sum is {sum}");
 
 
