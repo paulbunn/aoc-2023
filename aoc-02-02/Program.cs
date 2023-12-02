@@ -20,7 +20,6 @@ File.ReadLines("input.txt").ToList().ForEach(line => {
 
     int power = colors["red"] * colors["green"] * colors["blue"];
     sum += power;
-
 });
 
 Console.WriteLine($"The sum of game powers is {sum}");
